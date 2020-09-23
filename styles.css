@@ -1,85 +1,73 @@
-
-.container{
-    display:grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 50px repeat(5,20%) 50px;
-    grid-gap: 3px;  
+.container {
+    display: grid;
+    grid-template-columns: 30px 1fr 30px;
+    grid-template-rows: 50px repeat(5, 20%) 50px;
+    grid-gap: 3px;
+    grid-template-areas:
+        ". h ."
+        ". m ."
+        ". m ."
+        ". m ."
+        ". a ."
+        ". a ."
+        ". f .";
 }
- .container > div{
+
+.container>header,
+main,
+footer,
+aside {
     padding: 10px;
     color: white;
- }
+}
 
-.header{
+header {
     background-color: blue;
-    
+    grid-area: h;
 }
-.main{
+
+main {
     background-color: tomato;
-    grid-row: 2/5;
+    grid-area: m;
 }
-.footer{
-    background-color:greenyellow;
-} 
-.widget-area{
-    background-color:orange;
-    grid-row: 5/7;
-    
-} 
+
+footer {
+    background-color: greenyellow;
+    grid-area: f;
+}
+
+aside {
+    background-color: orange;
+    grid-area: a;
+}
 
 @media (min-width: 800px) {
-    .container{
-        grid-template-columns: 200px auto;
-        grid-template-rows: 50px repeat(5,20%) 50px ;
-        grid-gap: 3px;  
+    .container {
+        grid-template-columns: 30px 200px 1fr 30px;
+        grid-template-rows: 50px repeat(5, 20%) 50px;
+        grid-template-areas:
+            ". h m ."
+            ". h m ."
+            ". h m ."
+            ". h m ."
+            ". h a ."
+            ". h a ."
+            ". f f .";
     }
-    .header{
-        background-color: blue;
-        grid-row: 1 / -1;
-        
-    }
-    .main{
-        background-color: tomato;
-        grid-row: 1 / 5;
-        grid-column: 2;
-    }
-    .footer{
-        background-color:greenyellow;
-        grid-row: -2/-1;
-        grid-column: 2;
-    } 
-    .widget-area{
-        background-color:orange;
-        grid-row: 5/7;
-        grid-column: 2;
-        
-    } 
+
+
 }
-@media (min-width: 1200px) {
-    .container{
-        grid-template-columns: 200px auto 200px;
-        grid-template-rows:  50px repeat(5,20%) 50px;
-        grid-gap: 3px;  
+
+@media (min-width: 1000px) {
+    .container {
+        grid-template-columns: 30px 200px 1fr 200px 30px;
+        grid-template-areas:
+            ". h m a ."
+            ". h m a ."
+            ". h m a ."
+            ". h m a ."
+            ". h m a ."
+            ". h m a ."
+            ". f f a .";
     }
-    .header{
-        background-color: blue;
-        grid-row: 1/ -1;
-        grid-column:1 / 2;
-        
-    }
-    .main{
-        background-color: tomato;
-        grid-row: 1 / -2;
-        grid-column: 2 / 3;
-    }
-    .footer{
-        background-color:greenyellow;
-        grid-row: -2/-1;
-        grid-column: 2 / -1;
-     } 
-    .widget-area{
-        background-color:orange;
-        grid-row: 1/-2;
-        grid-column: 3 /-1
-    } 
 }
